@@ -5,12 +5,10 @@ def extract_method(first_throw, person):
     if first_throw > 5:
         my_string = "Good start!"
         term = "Major"
-        my_string = max_20_chars(my_string, term)
     else:
         my_string = "Bad start."
         term = "Minor"
-        my_string = max_20_chars(my_string, term)
-
+    my_string = max_20_chars(my_string, term)
     person.score += first_throw
 
     my_string += term
@@ -24,8 +22,7 @@ def extract_method(first_throw, person):
 
 
 def impressive(first_throw, term):
-    is_impressive = len(term) > 5 and "Major" in term and first_throw < 10
-    return is_impressive
+    return len(term) > 5 and "Major" in term and first_throw < 10
 
 
 def max_20_chars(my_string, term):

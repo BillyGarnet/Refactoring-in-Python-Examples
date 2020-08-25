@@ -8,7 +8,7 @@ class BowlingGame():
 
     def calculate_score(self):
         ball = 0
-        for frame in range(10):
+        for _ in range(10):
             if self.throws[ball] == 10:
                 self.score += 10 + self.throws[ball + 1] + self.throws[ball + 2]
                 ball += 1

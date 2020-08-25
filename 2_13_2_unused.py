@@ -8,7 +8,7 @@ def duplication_example(self, primary_value):
     second_string = ""
 
     increment = 10
-    for i in range(0, primary_value):
+    for _ in range(primary_value):
         while primary_value >= increment:
             my_string += "Major"
             primary_value -= increment

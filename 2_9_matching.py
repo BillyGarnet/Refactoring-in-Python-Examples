@@ -10,7 +10,7 @@ def duplication_example(primary_value):
             primary_value -= increment
 
     second_increment = 1
-    for i in range(0, primary_value):
+    for i in range(primary_value):
         while primary_value >= second_increment:
             my_string += "minor"
             primary_value -= second_increment

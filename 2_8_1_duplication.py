@@ -8,16 +8,16 @@ def duplication_example(self, food, groceries_list):
         groceries_list.append("Apple")
         favorite_snack = "Apple"
 
-    if food.name == "Orange":
-        groceries_list.append("Orange")
-        favorite_snack = "Orange"
-
-    if food.name == "Coconut":
+    elif food.name == "Coconut":
         groceries_list.append("Coconut")
         favorite_snack = "Coconut"
 
+    elif food.name == "Orange":
+        groceries_list.append("Orange")
+        favorite_snack = "Orange"
+
     for item in groceries_list:
-        if item == "Apple" or item == "Orange" or item == "Coconut":
+        if item in ["Apple", "Orange", "Coconut"]:
             vitamins = vitamins + " C"
         if item == "Coconut":
             vitamins = vitamins + " E B1 B3 B5 B6"

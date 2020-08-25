@@ -22,12 +22,12 @@ class AI(Player):
         upd_field = list(self.field)
 
         def place_ship(fld, cur_fld, trn):
-            current_ship_position = set([place for place in range(
-                len(fld)) if fld[place] == '&'])
+            current_ship_position = {place for place in range(
+                    len(fld)) if fld[place] == '&'}
             forb_places = CheckSurround(fld).forbid_placement()
             forb_places_upd = [place for place in forb_places
                                if cur_fld[place] == trn]
-            if len(forb_places_upd) == 0:
+            if not forb_places_upd:
                 for position in current_ship_position:
                     cur_fld[position] = trn
                 self.ships_alive.append(list(current_ship_position))
@@ -83,30 +83,21 @@ class AI(Player):
                 else:
                     continue
         elif len(wounded_ships) > 1:
-            if self.opponent.field[wounded_ships[-1] - 1] == 'x':
-                while True:
+            while True:
+                if self.opponent.field[wounded_ships[-1] - 1] == 'x':
                     shot = random.choice(list(
                         AI.horizontal_shooting_area(wounded_ships)))
-                    if self.opponent.field[shot] == self.opponent.turn:
-                        self.opponent.field[shot] = 'x'
-                        break
-                    elif self.opponent.field[shot] is None:
-                        self.opponent.field[shot] = 'o'
-                        break
-                    else:
-                        continue
-            else:
-                while True:
+                else:
                     shot = random.choice(list(
                         AI.upright_shooting_area(wounded_ships)))
-                    if self.opponent.field[shot] == self.opponent.turn:
-                        self.opponent.field[shot] = 'x'
-                        break
-                    elif self.opponent.field[shot] is None:
-                        self.opponent.field[shot] = 'o'
-                        break
-                    else:
-                        continue
+                if self.opponent.field[shot] == self.opponent.turn:
+                    self.opponent.field[shot] = 'x'
+                    break
+                elif self.opponent.field[shot] is None:
+                    self.opponent.field[shot] = 'o'
+                    break
+                else:
+                    continue
         else:
             available_to_shoot = random.choice([pos for pos in range(
                 len(self.opponent.field)) if self.opponent.field[pos] != 'o'])

@@ -12,7 +12,7 @@ class BowlingGameTests(unittest.TestCase):
         game = BowlingGame()
 
     def throw_many(self, frame_qty, pins):
-        for i in range(frame_qty):
+        for _ in range(frame_qty):
             game.hit(pins)
             game.hit(pins)
 
