@@ -8,10 +8,7 @@ def gt_cd(st_rgn):
 
 
 def process(site):
-    if site > 5:
-        site.region = gt_cd(1)
-    else:
-        site.region = gt_cd(2)
+    site.region = gt_cd(1) if site > 5 else gt_cd(2)
 
 
 def send_site_to_process_system_for_assignment_of_region_codes(site):

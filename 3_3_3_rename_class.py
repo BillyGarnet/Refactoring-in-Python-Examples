@@ -7,11 +7,7 @@ class ProcessResult(object):
     def comment_code(self, first_ball, second_ball):
 
         first_ball += 3
-        total = self.calculate_total(first_ball, second_ball)
-
-        return total
+        return self.calculate_total(first_ball, second_ball)
 
     def calculate_total(self, first_ball, second_ball):
-        total = first_ball + second_ball
-
-        return total
+        return first_ball + second_ball

@@ -10,11 +10,7 @@ def sort_blocks():
     table_of_contents = ''.join(read_me.split('- - -')[0])
     blocks = ''.join(read_me.split('- - -')[1]).split('\n# ')
     for i in range(len(blocks)):
-        if i == 0:
-            blocks[i] = blocks[i] + '\n'
-        else:
-            blocks[i] = '# ' + blocks[i] + '\n'
-
+        blocks[i] = blocks[i] + '\n' if i == 0 else '# ' + blocks[i] + '\n'
     # Sorting the libraries
     inner_blocks = sorted(blocks[0].split('##'))
     for i in range(1 , len(inner_blocks)):
